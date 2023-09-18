@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MyDatabaseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING")));
 //builder.Services.AddDistributedMemoryCache();
-builder.Services.AddStackExchangeRedisCache(option => {
+builder.Services.AddStackExchangeRedisCache(options => {
     options.Configuration = builder.Configuration["AZURE_REDIS_CONNECTIONSTRING"]; 
     options.InstanceName = "SampleInstance"; 
 }); 
